@@ -22,24 +22,46 @@ const titleInput = document.getElementById('title');
 const blogInput =document.getElementById('blog-content');
 const submitButton = document.getElementById('submit');
 
+function loadBlogPosts() {
+  const storedBlogs = localStorage.getItem('blogComplete');
+  return storedBlogs ? JSON.parse(storedBlogs) : [];
+}
+
+
+
 submitButton.addEventListener('click', function (event) {
   event.preventDefault();
+  
+ // collecting form values
+//   const usernameEntered = userNameInput.value;
+//  const titleEntered = titleInput.value;
+//  const blogEntered = blogInput.value;
 
-  // collecting form values
-  const usernameEntered = userNameInput.value;
-  const titleEntered = titleInput.value;
-  const blogEntered = blogInput.value;
+// const formComplete = {
+//   usernameEntered: usernameEntered,
+//   titleEntered: titleEntered,
+//   blogEntered: blogEntered,
+// };
+const usernameEntered = userNameInput.value.trim();
+const titleEntered = titleInput.value.trim();
+const blogEntered = blogInput.value.trim();
 
-// console.log ({usernameEntered, titleEntered,blogEntered})
 
-const blogComplete = {
-  usernameEntered: usernameEntered,
-  titleEntered: titleEntered,
-  blogEntered: blogEntered,
-};
-//saving to local storage
-const blogAsString = JSON.stringify(blogComplete)
-localStorage.setItem('blogComplete', blogAsString);
+
+
+//push into the array
+// blogComplete.push(formComplete);
+// userNameInput.value = '';
+// titleInput.value = '';
+// blogInput.value = '';
+
+
+
+   
+
+
+//change to string and saving to local storage
+// localStorage.setItem('blogComplete', JSON.stringify(blogComplete));
 
 
 //Ensuring form is complete
@@ -47,18 +69,27 @@ if (!usernameEntered || !titleEntered|| !blogEntered) {
   alert("Hey There! Please complete all fields to submit your blog.")
   return
 }
-else {function goToBlog() {
-  location.href= "blog.html"
-}
-goToBlog()
-}});
+
+
+const formComplete = {
+  usernameEntered: usernameEntered,
+  titleEntered: titleEntered,
+  blogEntered: blogEntered,
+};
+// Load existing blog posts from local storage
+  const blogComplete = loadBlogPosts();
+
+  // Adding the new blog post to the list of array
+  blogComplete.push(formComplete);
+
+  // Save the updated list of blog posts to local storage
+  localStorage.setItem('blogComplete', JSON.stringify(blogComplete));
+
+// else {function goToBlog() {
+  location.href= "blog.html"})
+// }
+// goToBlog()
 
 
 
-
-
-
-
-
-
-    
+// }})

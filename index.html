@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Blog Form</title>
-    <link rel = "stylesheet" href="./assets/css/styles.css"/>
+    <link rel = "stylesheet" href="./assets/css/styles.css "/>
+    <link rel="stylesheet" href="./assets/css/form.css"/>
   </head>
-  <body>
+  <body class = "light">
     <div class = "containter">
      <header class = "top-panel">
-      <button type = "toggle" id = "light-mode" name="sun"
-        onclick="">☀️ 
-        </button>
+      <button id = "toggle-dark" name="sun" >☀️</button>
      </header>
-     <aside class = "logo-side">
+     <aside class = "logo-column">
        <h1>My First Blog</h1>
     </aside>
-     <main class = "form-side">
+     <main class = "form-column">
       <h1 id="blog-title">What's On Your Mind?</h1>
 
       <h2 for = "usernames">Username</h2>
@@ -28,11 +27,12 @@
 
       <h2 for="blog-contents" >Content</h2>
       <textarea id="blog-content" name="blog-content" placeholder="Write your blog.." style="height:200px"></textarea>
-      
+
       <button type = "button" id = "submit"> Submit</button>
-      
+    
     </main>
     </div> 
-   <script src="assets/js/form.js"></script>  
+   <script src="assets/js/form.js"></script>
+   <script src="./assets/js/logic.js"></script>
   </body>
 </html>
